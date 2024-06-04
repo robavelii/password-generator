@@ -6,6 +6,7 @@ import {
   TextField,
 } from "@mui/material";
 import { FaRegCopy } from "react-icons/fa";
+import { MdClear } from "react-icons/md";
 import { Toaster, toast } from "sonner";
 
 import { characters } from "./constants";
@@ -41,6 +42,12 @@ const App = () => {
       setCopied(true);
       toast.success("Password copied successfully!");
     }
+  };
+
+  const handleClearClick = () => {
+    setPassword("");
+    setCopied(false);
+    toast.success("Password cleared!!");
   };
 
   return (
@@ -80,14 +87,26 @@ const App = () => {
               <InputAdornment position="end">
                 <FaRegCopy
                   className="text-gray-600 cursor-pointer"
-                  onClick={handleCopyClick}
+                  onClick={handleCopyClick} // Move this to the input field
                 />
+                <span className="mx-2">
+                  <MdClear
+                    className="text-gray-600 cursor-pointer"
+                    onClick={handleClearClick}
+                  />
+                </span>
               </InputAdornment>
             }
             readOnly
             className="text-white"
-            onClick={handleCopyClick}
           />
+
+          {copied && (
+            <p className="w-full text-center text-green-500 text-sm">
+              Password copied successfully!
+            </p>
+          )}
+
           <p className="text-s w-full text-center mt-6 text-blue-500">
             Made By{" "}
             <a
