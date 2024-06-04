@@ -18,7 +18,7 @@
 }
 
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -29,4 +29,15 @@
   button {
     background-color: #f9f9f9;
   }
+}
+
+body{
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+/* background: linear-gradient(to right, #ffffff, #34d399); */
+    /* background-color: #242424; */
+ 
 }
